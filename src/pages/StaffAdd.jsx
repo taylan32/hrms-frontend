@@ -1,38 +1,34 @@
 import React, { useState } from 'react'
-import { Button, Container, Form, Grid, Header, Icon, Label, Modal, Segment, Tab, Table } from 'semantic-ui-react'
+import { Formik, useFormik } from 'formik'
+import { Button, Container, Form, Grid, Header, Icon, Label, Modal, Segment, Table } from 'semantic-ui-react'
 import Headline from '../layouts/Headline'
 import * as Yup from "yup"
-import { Formik, useFormik } from 'formik'
 import { NavLink } from 'react-router-dom'
-import CandidateService from '../services/CandidateService'
+import StaffService from '../services/StaffService'
 
-export default function CandidateAdd() {
+export default function StaffAdd() {
 
     const [open, setOpen] = useState(false)
 
-    let candidateService = new CandidateService()
+    let staffService = new StaffService()
 
     const initialValues = {
         id: 0,
         email: "",
         password: "",
         firstName: "",
-        lastName: "",
-        identityNumber: "",
-        birthYear: ""
+        lastName: ""
     }
 
     const validationSchema = Yup.object({
         email: Yup.string().required("Zorunlu Alan"),
         password: Yup.string().required("Zorunlu Alan"),
         firstName: Yup.string().required("Zorunlu Alan"),
-        lastName: Yup.string().required("Zorunlu Alan"),
-        identityNumber: Yup.string().required("Zorunlu Alan"),
-        birthYear: Yup.string().required("Zorunlu Alan")
+        lastName: Yup.string().required("Zorunlu Alan")
     })
 
     const onSubmit = (values) => {
-        candidateService.add(values).then()
+        staffService.add(values).then()
         setOpen(true)
     }
 
@@ -55,54 +51,12 @@ export default function CandidateAdd() {
                 <Grid centered>
                     <Grid.Row>
                         <Grid.Column width="6">
-                            <Table color='red'>
+                            <Table color="yellow" >
                                 <Table.Body>
                                     <Table.Row>
                                         <Table.Cell>
                                             <Formik>
                                                 <Form onSubmit={formik.handleSubmit}>
-                                                    <div style={{ margin: "2%" }}>
-                                                        <Form.Input
-                                                            name="identityNumber"
-                                                            label="TC Kimik Numarası"
-                                                            onChange={(event, data) => handleChange("identityNumber", data.value)}
-                                                            value={formik.values.identityNumber}
-                                                        />
-                                                        {
-                                                            formik.errors.identityNumber && formik.touched.identityNumber &&
-                                                            <div>
-                                                                <Label basic color='red' pointing content={formik.errors.identityNumber} />
-                                                            </div>
-                                                        }
-                                                    </div>
-                                                    <div style={{ margin: "2%" }}>
-                                                        <Form.Input
-                                                            name="firstName"
-                                                            label="Ad"
-                                                            onChange={(event, data) => handleChange("firstName", data.value)}
-                                                            value={formik.values.firstName}
-                                                        />
-                                                        {
-                                                            formik.errors.firstName && formik.touched.firstName &&
-                                                            <div>
-                                                                <Label basic color='red' pointing content={formik.errors.firstName} />
-                                                            </div>
-                                                        }
-                                                    </div>
-                                                    <div style={{ margin: "2%" }}>
-                                                        <Form.Input
-                                                            name="lastName"
-                                                            label="Soyad"
-                                                            onChange={(event, data) => handleChange("lastName", data.value)}
-                                                            value={formik.values.lastName}
-                                                        />
-                                                        {
-                                                            formik.errors.lastName && formik.touched.lastName &&
-                                                            <div>
-                                                                <Label basic color='red' pointing content={formik.errors.lastName} />
-                                                            </div>
-                                                        }
-                                                    </div>
                                                     <div style={{ margin: "2%" }}>
                                                         <Form.Input
                                                             name="email"
@@ -112,12 +66,10 @@ export default function CandidateAdd() {
                                                         />
                                                         {
                                                             formik.errors.email && formik.touched.email &&
-                                                            <div>
+                                                            <div style={{ margin: "" }}>
                                                                 <Label basic color='red' pointing content={formik.errors.email} />
                                                             </div>
                                                         }
-                                                    </div>
-                                                    <div style={{ margin: "2%" }}>
                                                         <Form.Input
                                                             name="password"
                                                             label="Parola"
@@ -126,23 +78,33 @@ export default function CandidateAdd() {
                                                             value={formik.values.password}
                                                         />
                                                         {
-                                                            formik.errors.password && formik.touched.identityNumber &&
-                                                            <div>
+                                                            formik.errors.password && formik.touched.password &&
+                                                            <div style={{ margin: "2%" }}>
                                                                 <Label basic color='red' pointing content={formik.errors.password} />
                                                             </div>
                                                         }
-                                                    </div>
-                                                    <div style={{ margin: "2%" }}>
                                                         <Form.Input
-                                                            name="birthYear"
-                                                            label="Doğum Yılı"
-                                                            onChange={(event, data) => handleChange("birthYear", data.value)}
-                                                            value={formik.values.birthYear}
+                                                            name="firstName"
+                                                            label="Ad"
+                                                            onChange={(event, data) => handleChange("firstName", data.value)}
+                                                            value={formik.values.firstName}
                                                         />
                                                         {
-                                                            formik.errors.birthYear && formik.touched.birthYear &&
-                                                            <div>
-                                                                <Label basic color='red' pointing content={formik.errors.birthYear} />
+                                                            formik.errors.firstName && formik.touched.firstName &&
+                                                            <div style={{ margin: "" }}>
+                                                                <Label basic color='red' pointing content={formik.errors.firstName} />
+                                                            </div>
+                                                        }
+                                                        <Form.Input
+                                                            name="lastName"
+                                                            label="Soyad"
+                                                            onChange={(event, data) => handleChange("lastName", data.value)}
+                                                            value={formik.values.lastName}
+                                                        />
+                                                        {
+                                                            formik.errors.lastName && formik.touched.lastName &&
+                                                            <div style={{ margin: "" }}>
+                                                                <Label basic color='red' pointing content={formik.errors.lastName} />
                                                             </div>
                                                         }
                                                     </div>
@@ -159,7 +121,6 @@ export default function CandidateAdd() {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-
                 <Modal
                     basic
                     onClose={() => setOpen(false)}

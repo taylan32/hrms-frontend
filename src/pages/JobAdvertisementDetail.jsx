@@ -93,7 +93,7 @@ export default function JobAdvertisementDetail() {
                         <Grid.Column width="10" >
                             <Grid.Row>
                             {
-                                isStaff && 
+                                isStaff && jobAdvertisement.confirmed == false && 
                                 <Button color='green' circular compact content="Onayla" floated='right' onClick={() => handleAdvertisementConfirm()} />
                             }
 

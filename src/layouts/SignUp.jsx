@@ -52,7 +52,7 @@ export default function SignUp() {
                                 color = "yellow"
                                 content = "İşveren"
                                 as = {NavLink}
-                                to = {"/employers/add"}
+                                to = {"/employer/add"}
                                 onClick= {()=>setOpen(false)}
                                 />
                             </GridColumn>
@@ -63,7 +63,7 @@ export default function SignUp() {
                                 color = "blue"
                                 content = "Personel"
                                 as = {NavLink}
-                                to = {"/staffs/add"}
+                                to = {"/staff/add"}
                                 onClick= {()=>setOpen(false)}
                                 />
                             </GridColumn>

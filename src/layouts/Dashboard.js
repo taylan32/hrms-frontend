@@ -32,6 +32,8 @@ import EmployerUpdateDetailList from '../pages/EmployerUpdateDetailList';
 import CandidateAdd from '../pages/CandidateAdd';
 import Login from './Login';
 import SignIn from './SignIn';
+import EmployerAdd from '../pages/EmployerAdd';
+import StaffAdd from '../pages/StaffAdd';
 
 export default function Dashboard() {
   return (
@@ -67,6 +69,8 @@ export default function Dashboard() {
         <Route exact path="/employerupdates" component={EmployerUpdateDetailList} />
         <Route exact path="/candidate/add" component={CandidateAdd} />
         <Route exact path="/login" component={SignIn} />
+        <Route exact path="/employer/add" component={EmployerAdd} />
+        <Route exact path="/staff/add" component={StaffAdd} />
         
       <br/> <br/>
         <Footer />

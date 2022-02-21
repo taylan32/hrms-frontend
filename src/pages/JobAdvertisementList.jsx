@@ -178,11 +178,9 @@ export default function JobAdvertisementList({ type, itemsPerRow, id }) {
                     {jobAdvertisement.jobTitle?.jobTitle}
                   </Card.Header>
                   <Card.Meta>
-
-                    {jobAdvertisement.employer?.companyName}
+                    Firma:{jobAdvertisement.employer?.companyName}
                     <br />
-                    {jobAdvertisement.city?.cityName}
-
+                    Şehir:{jobAdvertisement.city?.cityName}
                     <br />
                     <strong>Açık pozisyon miktarı</strong> &nbsp;&nbsp;
 

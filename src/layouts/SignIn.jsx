@@ -30,8 +30,8 @@ export default function SignIn() {
     })
 
     const onSubmit = (values) => {
-        let isAuthenticated = false
         /*
+        let isAuthenticated = false
          for (let i = 0; i < users.length; i++) {
              if(users[i].email === values.email){
                  isAuthenticated = true

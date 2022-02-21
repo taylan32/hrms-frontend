@@ -23,7 +23,7 @@ export default function StaffProfile() {
     useEffect(() => {
         jobAdvertisementService.getAllWaitingForConfirmation().then((result) => setAdvertisementsWatingForConfirmation(result.data.data))
         employerUpdateService.getAll().then((result) => setEmployerUpdateWaitingForConfirmation(result.data.data))
-        employerService.getAllPassive().then((result) => setEmployerUpdateWaitingForConfirmation(result.data.data))
+        employerService.getAllPassive().then((result) => setEmployersWaitingForConfirmation(result.data.data))
     }, [])
 
 
@@ -168,11 +168,16 @@ export default function StaffProfile() {
                                                 <Card raised key={employer.id}>
                                                     <Card.Content>
                                                         <Card.Header>
-                                                            {employer.employer?.companyName}
+                                                            {employer.companyName}
                                                         </Card.Header>
                                                         <Card.Meta>
                                                             <Divider />
-                                                            <Button color='orange' circular content="Detay" />
+                                                            Website:{employer.webSite}<br />
+                                                            Telefon:{employer.phoneNumber} <br/>
+                                                            Email:{employer.email} <br/>
+                                                            <Divider />
+                                                            <Button color='yellow' circular content="Onayla" onClick={() => staffService.confirmEmployer(employer.id)} />
+                                                            <Button color='orange' circular content="Detay" as={NavLink} to={`employers/${employer.id}`} />
                                                         </Card.Meta>
                                                     </Card.Content>
                                                 </Card>

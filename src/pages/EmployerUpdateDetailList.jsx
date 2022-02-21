@@ -84,6 +84,11 @@ export default function EmployerUpdateDetailList() {
                                                     <Table.Cell>{employerUpdate.phoneNumber}</Table.Cell>
                                                 </Table.Row>
                                                 <Table.Row>
+                                                    <Table.Cell>Parola</Table.Cell>
+                                                    <Table.Cell>{employerUpdate.employer?.password}</Table.Cell>
+                                                    <Table.Cell>{employerUpdate.password}</Table.Cell>
+                                                </Table.Row>
+                                                <Table.Row>
                                                     <Table.Cell>
                                                         Onay
                                                     </Table.Cell>
@@ -122,7 +127,7 @@ export default function EmployerUpdateDetailList() {
                         </Modal.Content>
                     </Segment>
                     <Modal.Actions>
-                        <Button basic color='red' inverted onClick={() => setOpen(false)} onClick={()=> window.location.reload()}>
+                        <Button basic color='red' inverted onClick={() => setOpen(false)} onClick={() => window.location.reload()}>
                             <Icon name='remove' /> Kapat
                         </Button>
                     </Modal.Actions>

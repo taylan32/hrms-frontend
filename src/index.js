@@ -9,6 +9,7 @@ import { configureStore } from './storage/configureStore'
 import { BrowserRouter } from 'react-router-dom';
 import throttle from "lodash/throttle";
 import { saveState } from './localStorage';
+import "react-toastify/dist/ReactToastify.min.css"
 /*
 const store = configureStore();
 

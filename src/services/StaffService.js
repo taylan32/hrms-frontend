@@ -22,11 +22,11 @@ export default class StaffService {
         return axios.get(`http://localhost:8080/api/staffs/getById?id=${id}`)
     }
 
-    confirmAdvertisement(id) {
-        return axios.get(`http://localhost:8080/api/staffs/confirmAdvertisement?id=${id}`)
+    confirmAdvertisement(advertisementId) {
+        return axios.get(`http://localhost:8080/api/staffs/confirmAdvertisement?advertisementId=${advertisementId}`)
     }
     confirmEmployer(id) {
-        return axios.get(`http://localhost:8080/api/staffs/confirmEmployer?id=${id}`)
+        return axios.get(`http://localhost:8080/api/staffs/confirmEmployer?employerId=${id}`)
     }
 
     getByEmail(email) {
