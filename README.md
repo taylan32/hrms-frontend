@@ -1,4 +1,4 @@
-# [Kodlama.io Java Yazılım Geliştirici Kampı](https://kodlama.io/p/yazilim-gelistirici-yetistirme-kampi2)  
+# [Kodlama.io Java - React Yazılım Geliştirici Kampı](https://kodlama.io/p/yazilim-gelistirici-yetistirme-kampi2)  
   
 ## Görseller  
   
